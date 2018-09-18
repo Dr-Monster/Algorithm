@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
     }
+
     @Test
-    public void test(){
+    public void test() {
         System.out.println(judgeCircle("URDL"));
     }
 
@@ -16,37 +17,37 @@ public class Main {
     public boolean judgeCircle(String moves) {
 
         char[] cmd = moves.toCharArray();
-        int x = 0 ;
-        int y = 0 ;
-        for (char item : cmd){
+        int x = 0;
+        int y = 0;
+        for (char item : cmd) {
             String check = String.valueOf(item);
-            switch (check){
-                case "L":{
-                    x = x - 1 ;
+            switch (check) {
+                case "L": {
+                    x = x - 1;
                     break;
                 }
-                case "R":{
-                    x = x + 1 ;
+                case "R": {
+                    x = x + 1;
                     break;
                 }
-                case "U":{
-                    y = y + 1 ;
+                case "U": {
+                    y = y + 1;
                     break;
                 }
-                case "D":{
-                    y = y - 1 ;
+                case "D": {
+                    y = y - 1;
                     break;
                 }
-                default:{
+                default: {
 
                 }
             }
         }
 
-        if (x == 0 && y == 0){
+        if (x == 0 && y == 0) {
             return true;
-        }else{
-            return false ;
+        } else {
+            return false;
         }
     }
 }
