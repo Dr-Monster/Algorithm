@@ -20,40 +20,44 @@ public class Main {
     }
 
     public int reverse(int x) {
-        List<String> list = new ArrayList<>();
-        if (x >= 0 && x<= Integer.MAX_VALUE){
-            char[] trans = String.valueOf(x).toCharArray();
-            for (char charItem : trans){
-                list.add(String.valueOf(charItem));
-            }
-            Collections.reverse(list);
-            StringBuffer sb = new StringBuffer();
-            for (String stringItem : list){
-                sb.append(stringItem);
-            }
-            if ((x >= 0 && x<= Integer.MAX_VALUE) || x <= 0 && x>= Integer.MIN_VALUE){
-                return Integer.valueOf(sb.toString());
+        try{
+            List<String> list = new ArrayList<>();
+            if (x >= 0 && x<= Integer.MAX_VALUE){
+                char[] trans = String.valueOf(x).toCharArray();
+                for (char charItem : trans){
+                    list.add(String.valueOf(charItem));
+                }
+                Collections.reverse(list);
+                StringBuffer sb = new StringBuffer();
+                for (String stringItem : list){
+                    sb.append(stringItem);
+                }
+                if ((x >= 0 && x<= Integer.MAX_VALUE) || x <= 0 && x>= Integer.MIN_VALUE){
+                    return Integer.valueOf(sb.toString());
+                }else{
+                    return 0 ;
+                }
+            }else if (x <= 0 && x>= Integer.MIN_VALUE){
+                char[] trans = String.valueOf(x).split("-")[1].toCharArray();
+                for (char charItem : trans){
+                    list.add(String.valueOf(charItem));
+                }
+                Collections.reverse(list);
+                StringBuffer sb = new StringBuffer();
+                sb.append("-");
+                for (String stringItem : list){
+                    sb.append(stringItem);
+                }
+                if ((x >= 0 && x<= Integer.MAX_VALUE) || x <= 0 && x>= Integer.MIN_VALUE){
+                    return Integer.valueOf(sb.toString());
+                }else{
+                    return 0 ;
+                }
             }else{
                 return 0 ;
             }
-        }else if (x <= 0 && x>= Integer.MIN_VALUE){
-            char[] trans = String.valueOf(x).split("-")[1].toCharArray();
-            for (char charItem : trans){
-                list.add(String.valueOf(charItem));
-            }
-            Collections.reverse(list);
-            StringBuffer sb = new StringBuffer();
-            sb.append("-");
-            for (String stringItem : list){
-                sb.append(stringItem);
-            }
-            if ((x >= 0 && x<= Integer.MAX_VALUE) || x <= 0 && x>= Integer.MIN_VALUE){
-                return Integer.valueOf(sb.toString());
-            }else{
-                return 0 ;
-            }
-        }else{
-            return 0 ;
+        }catch (Exception e){
+            return 0;
         }
     }
 }
